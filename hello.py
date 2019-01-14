@@ -16,3 +16,5 @@ class App():
         self.root.after(1000, self.update_clock)
 
 app=App()
+
+while
