@@ -1,18 +1,25 @@
+from tkinter import *
 
-import tkinter as tk
-import time
+class Application(Frame):
+    def __init__(self,master):
 
-class App():
-    def __init__(self):
-        self.root = tk.Tk()
-        self.label = tk.Label(text="")
-        self.label.pack()
-        self.update_clock()
-        self.root.mainloop()
+        super(Application, self).__init__(master)
+        self.grid()
+        self.bttn_clicks = 0
+        self.create_widget()
 
-    def update_clock(self):
-        now = time.strftime("%H:%M:%S")
-        self.label.configure(text=now)
-        self.root.after(1000, self.update_clock)
+    def create_widget(self):
+        self.bttn = Button(self)
+        self.bttn["text"] = "Total Clicks: 0"
+        self.bttn["command"] = self.update_count
+        self.bttn.grid()
 
-app=App()
+    def update_count(self):
+        self.bttn_clicks += 1
+        self.bttn["text"] = "Total Clicks: " + str(self.bttn_clicks)
+
+root = Tk()
+root.title("Click Counter")
+root.geometry("200x50")
+app = Application(root)
+root.mainloop()
