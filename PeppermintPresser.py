@@ -3,6 +3,7 @@ from tkinter import *
 # from PIL import Image, ImageTk
 import time
 
+
 class Application(Frame):
     def __init__(self,master):
 
@@ -55,6 +56,14 @@ class Application(Frame):
     # root.mainloop()
     #
     # # def penguin_clicker(self):
+  class fe:
+    def __init__(self,master):
+      self.b=Button(master,justify = LEFT)
+      photo=PhotoImage(file="mine32.gif")
+      self.b.config(image=photo,width="10",height="10")
+      self.b.pack(side=LEFT)
+
+
 
 root = Tk()
 root.title("PeppermintPresser")
