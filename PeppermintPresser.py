@@ -63,6 +63,11 @@ class Application(Frame):
       self.b.config(image=photo,width="10",height="10")
       self.b.pack(side=LEFT)
 
+root = tk.Tk()
+img = ImageTk.PhotoImage(Image.open(path))
+panel = tk.Label(root, image = img)
+panel.pack(side = "bottom", fill = "both", expand = "yes")
+root.mainloop()
 
 
 root = Tk()
