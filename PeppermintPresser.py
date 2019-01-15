@@ -22,10 +22,10 @@ class Application(Frame):
 
     # --- functions ---
 
-    def on_click(event=None):
-        # `command=` calls function without argument
-        # `bind` calls function with one argument
-        print("image clicked")
+    # def on_click(event=None):
+    #     # `command=` calls function without argument
+    #     # `bind` calls function with one argument
+    #     print("image clicked")
 
     # # --- main ---
     #

@@ -17,7 +17,7 @@ root = tk.Tk()
 frame1 = tk.Frame(root)
 frame1.pack(side=tk.TOP, fill=tk.X)
 # pick a (small) image file you have in the working directory ...
-photo1 = tk.PhotoImage(file="Peppermint.png")
+photo1 = tk.PhotoImage(file="peppermint.png")
 # create the image button, image is above (top) the optional text
 button1 = tk.Button(frame1, compound=tk.TOP, width=155, height=55, image=photo1,
     text="optional text", bg='green', command=click)
