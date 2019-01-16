@@ -17,12 +17,13 @@ class Application(Frame):
         self.photo = photo
         self.bttn.place(x=20, y=20)
         self.bttn.grid(row=0, column=0)
+        self.bttn["command"] = self.update_count
 
 
     def create_widgets2(self):
         self.bttn2 = Button(self)
         self.bttn2["text"] = "Total Clicks: 0"
-        self.bttn2["command"] = self.update_count
+
         self.bttn2.place(x=40, y=40)
         self.bttn2.grid(row=0, column=3)
 
