@@ -24,7 +24,7 @@
 # # root.geometry("200x50")
 # # app = Application(root)
 # # root.mainloop()
-
+'''
 from tkinter import *
 from tkinter import ttk
 
@@ -89,3 +89,16 @@ panewindow.add(paitents_frame, weight = 1)
 panewindow.add(prescription_frame, weight = 1)
 
 root.mainloop()
+'''
+from tkinter import *
+
+master = Tk()
+
+Label(text="one").pack()
+
+separator = Frame(height=10, bd=10, relief=SUNKEN)
+separator.pack(fill=X, padx=5, pady=5)
+
+Label(text="two").pack()
+
+mainloop()
