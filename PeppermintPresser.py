@@ -43,7 +43,7 @@ class Peppermint(Frame):
         label4.pack()
         label5.pack()
 
-        root.mainloop()
+        root.mainloop(
 
 
     '''
