@@ -6,6 +6,10 @@ class Peppermint(Frame):
         self.grid()
         self.create_window()
 
+    def p_com(self):
+
+
+
     def create_window(self):
         root = Tk()
         root.geometry("600x400")
@@ -23,7 +27,7 @@ class Peppermint(Frame):
         ice_age= Frame(right, borderwidth=2, relief="solid")
         pluto = Frame(right, borderwidth=2, relief="solid")
 
-        label2 = Label(left, text="Peppermint Area")
+        peppermint_area = Label(left, text="Peppermint Area")
         l1 = Button(penguin, command=self.p_com, text="I could be your image")
         l2 = Button(polar_bear, command=self.po_com, text="I could be your setup window")
         l3 = Button(christmas_tree, command=self.c_com, text="I could be your image")
@@ -38,10 +42,17 @@ class Peppermint(Frame):
         left.pack(side="left", expand=True, fill="both")
         right.pack(side="right", expand=True, fill="both")
 
-        label2.pack()
-        label3.pack()
-        label4.pack()
-        label5.pack()
+        peppermint_area.pack()
+        l1.pack()
+        l2.pack()
+        l3.pack()
+        l4.pack()
+        l5.pack()
+        l6.pack()
+        l7.pack()
+        l8.pack()
+        l9.pack()
+        l10.pack()
 
         root.mainloop()
 
