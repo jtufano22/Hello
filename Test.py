@@ -11,6 +11,10 @@ class Application(Frame):
         self.create_widgets2()
         self.create_widgets3()
         self.create_widgets4()
+        # autoclickers = 0
+        # autoclickerspurchased = False
+        self.comments()
+        self.autoclicker1()
 
 
     def create_widget(self):
@@ -42,6 +46,25 @@ class Application(Frame):
         self.bttn4.grid(row = 3, column = 0)
         # self.bttn4.place(x=60, y=79)
         self.bttn4["command"] = self.add_cookies
+    #
+    def comments(self):
+        self.bttn4 = Button(self)
+        self.bttn4["text"] = "Comments"
+        self.bttn4.grid(row=4, column=0)
+
+    def autoclicker1(self):
+        self.autobttn = Button(self)
+        self.autobttn["text"] = "Auto: Cost 50"
+        self.autobttn.grid(row = 5, column = 0)
+        self.autobttn["command"] = self.enough1
+
+
+    def enough1(self):
+
+        if self.bttn_clicks < 25:
+            self.bttn4["text"] = "Sorry Not enough peppermints!"
+        if self.bttn_clicks >= 25:
+            self.bttn4["text"] = "Purchased!"
 
 
 
@@ -57,6 +80,24 @@ class Application(Frame):
         self.bttn_clicks += 50
         self.bttn2["text"] = "Peppermints: " + str(self.bttn_clicks)
 
+    # def purchaseAutoClickerCommand(self):
+    #     global click
+    #     global autoclickers  # declare global
+    #     if click < 7:
+    #         print("Not enough clicks!")
+    #         blankLine()
+    #     else:
+    #         click -= 7  # pay for an autoclicker
+    #         print("Auto clicker purchased!")
+    #         autoclickers += 1  # receive an autoclicker
+    #
+    # def autoclick(self):
+    #     global master
+    #     global click
+    #     global autoclickers
+    #     click += autoclickers  # get clicks from autoclickers
+    #     master.after(1000, autoclick)  # do this again 1 second later
+    #
 
 
     # def callback():
