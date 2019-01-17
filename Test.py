@@ -68,6 +68,7 @@ class Application(Frame):
 
 
 
+
     def update_count(self):
         self.bttn_clicks += 1
         self.bttn2["text"] = "Peppermints: " + str(self.bttn_clicks)
