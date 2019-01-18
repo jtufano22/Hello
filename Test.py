@@ -15,6 +15,8 @@ class Application(Frame):
         # autoclickerspurchased = False
         self.comments()
         self.autoclicker1()
+        self.upgrader1 = 0
+
 
 
     def create_widget(self):
@@ -61,10 +63,20 @@ class Application(Frame):
 
     def enough1(self):
 
-        if self.bttn_clicks < 25:
+        if self.upgrader1 == 0:
+            a = 50
+        elif self.upgrader1 == 1:
+            a = 150
+        elif self.upgrader1 == 2:
+            a = 450
+
+        if self.bttn_clicks < 50:
             self.bttn4["text"] = "Sorry Not enough peppermints!"
-        if self.bttn_clicks >= 25:
+        if self.bttn_clicks >= 50:
             self.bttn4["text"] = "Purchased!"
+            self.bttn_clicks -= 50
+            self.upgrader1 += 1
+        self.bttn2["text"] = "Peppermints: " + str(self.bttn_clicks)
 
 
 
@@ -81,17 +93,7 @@ class Application(Frame):
         self.bttn_clicks += 50
         self.bttn2["text"] = "Peppermints: " + str(self.bttn_clicks)
 
-    # def purchaseAutoClickerCommand(self):
-    #     global click
-    #     global autoclickers  # declare global
-    #     if click < 7:
-    #         print("Not enough clicks!")
-    #         blankLine()
-    #     else:
-    #         click -= 7  # pay for an autoclicker
-    #         print("Auto clicker purchased!")
-    #         autoclickers += 1  # receive an autoclicker
-    #
+
     # def autoclick(self):
     #     global master
     #     global click
