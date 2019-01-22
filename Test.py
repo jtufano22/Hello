@@ -11,11 +11,14 @@ class Application(Frame):
         self.create_widgets2()
         self.create_widgets3()
         self.create_widgets4()
+        self.a = 0
+        self.c = 1
         # autoclickers = 0
         # autoclickerspurchased = False
         self.comments()
-        self.autoclicker1()
         self.upgrader1 = 0
+        self.autoclicker1()
+
 
 
 
@@ -55,35 +58,82 @@ class Application(Frame):
         self.bttn4.grid(row=4, column=0)
 
     def autoclicker1(self):
+
+
         self.autobttn = Button(self)
-        self.autobttn["text"] = "Auto: Cost 50"
-        self.autobttn.grid(row = 5, column = 0)
-        self.autobttn["command"] = self.enough1
+
+        if self.upgrader1 == 8:
+            self.autobttn["text"] = "No more upgrades!"
+            
+        if self.upgrader1 != 8:
+
+            if self.upgrader1 == 0:
+                self.a = 50
+            elif self.upgrader1 != 0:
+                self.b = 50*self.upgrader1
+                self.a = 3*self.b
+
+            self.autobttn["text"] = "Auto: Cost " + str(self.a)
+            self.autobttn.grid(row = 5, column = 0)
+            self.autobttn["command"] = self.enough1
 
 
     def enough1(self):
 
-        if self.upgrader1 == 0:
-            a = 50
-        elif self.upgrader1 == 1:
-            a = 150
-        elif self.upgrader1 == 2:
-            a = 450
 
-        if self.bttn_clicks < 50:
+
+        if self.upgrader1 == 0:
+            self.a = 50
+        elif self.upgrader1 >= 1:
+            self.a *= 2
+
+
+        if self.bttn_clicks < self.a:
             self.bttn4["text"] = "Sorry Not enough peppermints!"
-        if self.bttn_clicks >= 50:
+        if self.bttn_clicks >= self.a:
             self.bttn4["text"] = "Purchased!"
-            self.bttn_clicks -= 50
+            self.bttn_clicks -= self.a
             self.upgrader1 += 1
+            if self.upgrader1 != 7:
+                self.autobttn["text"] = "Auto: Cost " + str(self.a*2)
+            else:
+                self.autobttn["text"] = "No more upgrades!"
         self.bttn2["text"] = "Peppermints: " + str(self.bttn_clicks)
+        # self.autobttn["text"] = "Auto: Cost " + str(self.a)
+
 
 
 
 
     def update_count(self):
-        self.bttn_clicks += 1
+
+        if self.upgrader1 == 0:
+            self.bttn_clicks += self.c
+
+        if self.upgrader1 == 1:
+            self.bttn_clicks += 3
+
+        if self.upgrader1 == 2:
+            self.bttn_clicks += 6
+
+        if self.upgrader1 == 3:
+            self.bttn_clicks += 9
+            
+        if self.upgrader1 == 4:
+            self.bttn_clicks += 12
+
+        if self.upgrader1 == 5:
+            self.bttn_clicks += 15
+
+        if self.upgrader1 == 6:
+            self.bttn_clicks += 18
+
+        if self.upgrader1 == 7:
+            self.bttn_clicks += 21
+
         self.bttn2["text"] = "Peppermints: " + str(self.bttn_clicks)
+
+
 
     def reset(self):
         self.bttn_clicks = 0
@@ -110,13 +160,13 @@ class Application(Frame):
     # def peppermint(master):
     #     photo = PhotoImage(file="peppermint11.png")
     #     b = Button(master, image=photo, text="Click!!", height=50, width=150, compound=LEFT)
-    #     b.place(x=20, y=20)
-
-def callback(self):
-    print("click!")
+#     #     b.place(x=20, y=20)
+#
+# def callback(self):
+#     print("click!")
 
 root = Tk()
 root.title("Peppermint Clicker")
 root.geometry("999x990")
 app = Application(root)
-root.mainloop()
+app.mainloop()
