@@ -6,61 +6,75 @@ class Peppermint(Frame):
         super(Peppermint, self).__init__(master)
         self.grid()
         self.bttn_clicks = 0
+        self.p_up = 0
+        self.po_up = 0
+        self.ch_up = 0
+        self.pres_up = 0
+        self.can_up = 0
+        self.esk_up = 0
+        self.ig_up = 0
+        self.nor_up = 0
+        self.ice_up = 0
+        self.pluto_up = 0
         self.create_window()
 
 
     def create_window(self):
 
-        photo = PhotoImage(file="peppermint11.png")
+        self.photo = PhotoImage(file="peppermint11.png")
 
         self.count = Button(self, text="Peppermints: 0", relief=RAISED)
 
         self.redo = Button(self, text="Reset", command=self.reset, relief=RAISED)
 
-        left = Frame(root, borderwidth=2, relief=RAISED)
-        right = Frame(root, borderwidth=2, relief=RAISED)
-        penguin = Frame(right, borderwidth=2, relief=RAISED)
-        polar_bear = Frame(right, borderwidth=2, relief=RAISED)
-        christmas_tree = Frame(right, borderwidth=2, relief=RAISED)
-        pres_mac = Frame(right, borderwidth=2, relief=RAISED)
-        candy_for = Frame(right, borderwidth=2, relief=RAISED)
-        eskimo = Frame(right, borderwidth=2, relief=RAISED)
-        igloo = Frame(right, borderwidth=2, relief=RAISED)
-        north_pole = Frame(right, borderwidth=2, relief=RAISED)
-        ice_age = Frame(right, borderwidth=2, relief=RAISED)
-        pluto = Frame(right, borderwidth=2, relief=RAISED)
+        self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(self.penguin()[1]) + "\nLevel: " + str(self.penguin()[0]),
+                              command=self.penguin, relief=RAISED)
+        self.penguin_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
 
-        self.peppermint = Button(left, image=photo, command=self.update_count)
-        '''
-        l1 = Button(penguin, command=self.p_com, text="I could be your image")
-        l2 = Button(polar_bear, command=self.po_com, text="I could be your setup window")
-        l3 = Button(christmas_tree, command=self.c_com, text="I could be your image")
-        l4 = Button(pres_mac, command=self.pr_com, text="I could be your image")
-        l5 = Button(candy_for, command=self.ca_com, text="I could be your image")
-        l6 = Button(eskimo, command=self.e_com, text="I could be your image")
-        l7 = Button(igloo, command=self.i_com, text="I could be your image")
-        l8 = Button(north_pole, command=self.n_com, text="I could be your image")
-        l9 = Button(ice_age, command=self.ice_com, text="I could be your image")
-        l10 = Button(pluto, command=self.plu_com, text="I could be your image")
-        '''
+        self.polarbear_bttn = Button(self, text="Polar Bear", relief=RAISED)
+        self.polarbear_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
 
+        self.christmastree_bttn = Button(self, text="Christmas tree", relief=RAISED)
+        self.christmastree_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
 
-        self.count.pack()
-        self.redo.pack()
-        '''
-        l1.pack()
-        l2.pack()
-        l3.pack()
-        l4.pack()
-        l5.pack()
-        l6.pack()
-        l7.pack()
-        l8.pack()
-        l9.pack()
-        l10.pack()
-        '''
+        self.presmac_bttn = Button(self, borderwidth=2, relief=RAISED)
+        self.presmac_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+
+        self.candyfor_bttn = Button(self, borderwidth=2, relief=RAISED)
+        self.candyfor_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+
+        self.eskimo_bttn = Button(self, borderwidth=2, relief=RAISED)
+        self.eskimo_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+
+        self.igloo_bttn = Button(self, borderwidth=2, relief=RAISED)
+        self.igloo_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+
+        self.northpole_bttn = Button(self, borderwidth=2, relief=RAISED)
+        self.northpole_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+
+        self.iceage_bttn = Button(self, borderwidth=2, relief=RAISED)
+        self.iceage_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+
+        self.pluto_bttn = Button(self, borderwidth=2, relief=RAISED)
+        self.pluto_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+
+        self.peppermint = Button(self, image=self.photo, command=self.update_count)
+        self.peppermint.grid(row=0, column=0, rowspan=10, sticky=W+E+N+S)
+
+        self.count.grid()
+        self.redo.grid()
+
+    def penguin(self):
+        if
+            self.p_up += 0
+            self.pcost = 50 + self.p_up ** 3
+            self.p_list = [self.p_up, self.pcost]
+            return self.p_list
+
     def update_count(self):
         self.bttn_clicks += 1
+        self.bttn_clicks += self.penguin()[0] * 3
+
         self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
     def reset(self):

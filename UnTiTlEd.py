@@ -1,30 +1,89 @@
 from tkinter import *
+import time
 
-root = Tk()
-root.geometry("600x400")
+master = Tk()
 
-right = Frame(root, borderwidth=2, relief="solid")
-left = Frame(root, borderwidth=2, relief="solid")
-container = Frame(left, borderwidth=0, relief="solid")
-box1 = Frame(right, borderwidth=2, relief="solid")
-box2 = Frame(right, borderwidth=2, relief="solid")
+def uiPrint():
+    info()
+    print("")
+    print(click)
+    blankLine()
 
-label1 = Label(container, text="I could be a canvas, but I'm a label right now")
-label2 = Label(left, text="I could be a button")
-label3 = Label(left, text="So could I")
-label4 = Label(box1, text="I could be your image")
-label5 = Label(box2, text="I could be your setup window")
+def info():
+    print("Double click purchases need 50 clicks!")
+    print("Auto clicker purchases need 75 clicks!")
 
-left.pack(side="right", expand=True, fill="both")
-right.pack(side="right", expand=True, fill="both")
-container.pack(expand=True, fill="both", padx=5, pady=5)
-box1.pack(expand=True, fill="both", padx=10, pady=10)
-box2.pack(expand=True, fill="both", padx = 0, pady=10)
+info()
 
-label1.pack()
-label2.pack()
-label3.pack()
-label4.pack()
-label5.pack()
+click = 0
+mult = 1
+dcp1 = 0
 
-root.mainloop()
+def blankLine():
+    for i in range(20):
+        print("")
+
+def purchaseDoubleClicksCommand():
+    global click
+    global mult
+    if click < 5:
+        print("Not enough clicks!")
+        blankLine()
+    elif click >= 5:
+        mult = mult*2
+        click = click - 5
+        print("Double Clicks Purchased!")
+        blankLine()
+
+
+def purchaseAutoClickerCommand():
+    global click
+    if click < 7:
+        print("Not enough clicks!")
+        blankLine()
+    elif click >= 7:
+        click = click - 7
+        print("Auto clicker purchased!")
+        while True:
+            click = click + 1
+            time.sleep(1)
+
+
+def buttonCommand():
+    global click
+    global mult
+    click += 1*(mult)
+    uiPrint()
+
+    if click == 100:
+        print('''Achievement Unlocked: Junior Clicker!
+        BONUS 100 clicks!''')
+        click += 100
+
+    elif click == 400:
+        print ('''Achievement Unlocked: Little Ninja Clicks!
+        BONUS 200!''')
+        click += 300
+
+    elif click == 1500:
+        print ('''Achievement Unlocked: Click Ninja Master!
+        QUAD CLICKS!''')
+        mult = mult * 4
+
+    elif click == 3000:
+        print ('''Achievement Unlocked:  Jackie Chan Style!
+        8 TIMES THE CLICKS!''')
+        mult = mult * 8
+
+mainClickButton = Button(master, text="Click!", command = buttonCommand)
+mainClickButton.pack()
+
+purchaseDoubleClickButton = Button(master, text="Purchase Double Clicks", command = purchaseDoubleClicksCommand)
+purchaseDoubleClickButton.pack()
+
+purchaseAutoClickerButton = Button(master, text="Purchase Auto Clicker", command = purchaseAutoClickerCommand)
+purchaseAutoClickerButton.pack()
+
+master.title("Clicker! v0.0.6")
+master.geometry("%sx%s+%s+%s" % (200,70,512,512))
+mainloop()
