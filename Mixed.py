@@ -65,7 +65,7 @@ class Peppermint(Frame):
         self.redo.grid()
 
     def penguin(self):
-        if
+
             self.p_up += 0
             self.pcost = 50 + self.p_up ** 3
             self.p_list = [self.p_up, self.pcost]
