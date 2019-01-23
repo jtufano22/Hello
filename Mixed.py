@@ -35,7 +35,7 @@ class Peppermint(Frame):
         self.polarbear_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
 
         self.christmastree_bttn = Button(self, text="Christmas tree", relief=RAISED)
-        self.christmastree_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+        self.christmastree_bttn.grid(row=1, column=1, rowspan=1, sticky=E+N)
 
         self.presmac_bttn = Button(self, borderwidth=2, relief=RAISED)
         self.presmac_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
