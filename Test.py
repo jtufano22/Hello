@@ -61,17 +61,15 @@ class Application(Frame):
 
 
         self.autobttn = Button(self)
+        self.a = 50
 
-
-        if self.upgrader1 == 0:
-            self.a = 50
-        elif self.upgrader1 != 0:
-            self.b = 50*self.upgrader1
-            self.a = 3*self.b
-
-        self.autobttn["text"] = "Auto: Cost " + str(self.a)
+        # self.autobttn["text"] = "Auto: Cost " + str(self.a)
         self.autobttn.grid(row = 5, column = 0)
-        self.autobttn["command"] = self.enough1
+        if self.upgrader1 != 7:
+            self.autobttn["command"] = self.enough1
+            self.autobttn["text"] = "Auto: Cost " + str(self.a)
+        else:
+           self.autobttn["text"] = "Done! No more upgrades!"
 
 
     def enough1(self):
@@ -81,19 +79,19 @@ class Application(Frame):
         if self.upgrader1 == 0:
             self.a = 50
         elif self.upgrader1 >= 1:
-            self.a *= 3
+            self.a *= 2
             # self.autobttn["text"] = "Auto: Cost " + str(self.a)
 
 
 
         if self.bttn_clicks < self.a:
             self.bttn4["text"] = "Sorry Not enough peppermints!"
-            self.a /= 3
+            self.a /= 2
         if self.bttn_clicks >= self.a:
             self.bttn4["text"] = "Purchased!"
             self.bttn_clicks -= self.a
             self.upgrader1 += 1
-            self.autobttn["text"] = "Auto: Cost " + str(self.a*3)
+            self.autobttn["text"] = "Auto: Cost " + str(self.a*2)
 
         self.bttn2["text"] = "Peppermints: " + str(self.bttn_clicks)
         # self.autobttn["text"] = "Auto: Cost " + str(self.a)
