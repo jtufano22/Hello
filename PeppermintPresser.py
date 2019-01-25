@@ -21,50 +21,61 @@ class Peppermint(Frame):
 
     def create_window(self):
 
+        p = self.penguin()
+        po = self.polar()
+        ch = self.christmas()
+        pres = self.present()
+        can = self.candy()
+        esk = self.eskimo()
+        ig = self.igloo()
+        nor = self.north()
+        ice = self.ice()
+        pluto = self.pluto()
+
         self.photo = PhotoImage(file="peppermint11.png")
 
         self.count = Button(self, text="Peppermints: 0", relief=RAISED)
 
         self.redo = Button(self, text="Reset", command=self.reset, relief=RAISED)
 
-        self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(self.penguin()[1]) + "\nLevel: " + str(self.penguin()[0]),
+        self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(p[1]) + "\nLevel: " + str(p[0]),
                               command=self.penguin, relief=RAISED)
         self.penguin_bttn.grid(row=0, column=1, sticky=W)
 
-        self.polarbear_bttn = Button(self, text="Polar Bear\nCost: " + str(self.polar()[1]) + "\nLevel: "
-                                     + str(self.polar()[0]), command=self.polar, relief=RAISED)
+        self.polarbear_bttn = Button(self, text="Polar Bear\nCost: " + str(po[1]) + "\nLevel: "
+                                     + str(po[0]), command=self.polar, relief=RAISED)
         self.polarbear_bttn.grid(row=1, column=1, sticky=W)
 
-        self.christmastree_bttn = Button(self, text="Christmas tree\nCost: " + str(self.christmas()[1])
-                                        + "\nLevel: " + str(self.christmas()[0]), command=self.christmas, relief=RAISED)
+        self.christmastree_bttn = Button(self, text="Christmas tree\nCost: " + str(ch[1])
+                                        + "\nLevel: " + str(ch[0]), command=self.christmas, relief=RAISED)
         self.christmastree_bttn.grid(row=2, column=1, sticky=W)
 
-        self.presmac_bttn = Button(self, text="Present Machine\nCost: " + str(self.present()[1])
-                                            + "\nLevel: " + str(self.present()[0]), command=self.present, relief=RAISED)
+        self.presmac_bttn = Button(self, text="Present Machine\nCost: " + str(pres[1])
+                                            + "\nLevel: " + str(pres[0]), command=self.present, relief=RAISED)
         self.presmac_bttn.grid(row=3, column=1, sticky=W)
 
-        self.candyfor_bttn = Button(self, text="Candy Forest\nCost: " + str(self.candy()[1])
-                                    + "\nLevel: " + str(self.candy()[0]), command=self.candy, relief=RAISED)
+        self.candyfor_bttn = Button(self, text="Candy Forest\nCost: " + str(can[1])
+                                    + "\nLevel: " + str(can[0]), command=self.candy, relief=RAISED)
         self.candyfor_bttn.grid(row=4, column=1, sticky=W)
 
-        self.eskimo_bttn = Button(self, text="Eskimo\nCost: " + str(self.eskimo()[1])
-                                  + "\nLevel: " + str(self.eskimo()[0]), command=self.eskimo, relief=RAISED)
+        self.eskimo_bttn = Button(self, text="Eskimo\nCost: " + str(esk[1])
+                                  + "\nLevel: " + str(esk[0]), command=self.eskimo, relief=RAISED)
         self.eskimo_bttn.grid(row=5, column=1, sticky=W)
 
-        self.igloo_bttn = Button(self, text="Igloo\nCost: " + str(self.igloo()[1])
-                                  + "\nLevel: " + str(self.igloo()[0]), command=self.igloo, relief=RAISED)
+        self.igloo_bttn = Button(self, text="Igloo\nCost: " + str(ig[1])
+                                  + "\nLevel: " + str(ig[0]), command=self.igloo, relief=RAISED)
         self.igloo_bttn.grid(row=6, column=1, sticky=W)
 
-        self.northpole_bttn = Button(self, text="North Pole\nCost: " + str(self.north()[1])
-                                  + "\nLevel: " + str(self.north()[0]), command=self.northpole, relief=RAISED)
+        self.northpole_bttn = Button(self, text="North Pole\nCost: " + str(nor[1])
+                                  + "\nLevel: " + str(nor[0]), command=self.north, relief=RAISED)
         self.northpole_bttn.grid(row=7, column=1, sticky=W)
 
-        self.iceage_bttn = Button(self, text="Ice Age\nCost: " + str(self.ice()[1])
-                                  + "\nLevel: " + str(self.ice()[0]), command=self.ice, relief=RAISED)
+        self.iceage_bttn = Button(self, text="Ice Age\nCost: " + str(ice[1])
+                                  + "\nLevel: " + str(ice[0]), command=self.ice, relief=RAISED)
         self.iceage_bttn.grid(row=8, column=1, sticky=W)
 
-        self.pluto_bttn = Button(self, text="Pluto\nCost: " + str(self.pluto()[1])
-                                  + "\nLevel: " + str(self.pluto()[0]), command=self.pluto, relief=RAISED)
+        self.pluto_bttn = Button(self, text="Pluto\nCost: " + str(pluto[1])
+                                  + "\nLevel: " + str(pluto[0]), command=self.pluto, relief=RAISED)
         self.pluto_bttn.grid(row=9, column=1, sticky=W)
 
         self.peppermint = Button(self, image=self.photo, command=self.update_count)
