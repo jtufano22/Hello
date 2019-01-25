@@ -56,7 +56,7 @@ class Peppermint(Frame):
         self.igloo_bttn.grid(row=6, column=1, sticky=W)
 
         self.northpole_bttn = Button(self, text="North Pole\nCost: " + str(self.north()[1])
-                                  + "\nLevel: " + str(self.north()[0]), command=self.northpole, relief=RAISED)
+                                  + "\nLevel: " + str(self.north()[0]), command=self.north, relief=RAISED)
         self.northpole_bttn.grid(row=7, column=1, sticky=W)
 
         self.iceage_bttn = Button(self, text="Ice Age\nCost: " + str(self.ice()[1])
