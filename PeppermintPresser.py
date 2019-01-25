@@ -29,43 +29,43 @@ class Peppermint(Frame):
 
         self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(self.penguin()[1]) + "\nLevel: " + str(self.penguin()[0]),
                               command=self.penguin, relief=RAISED)
-        self.penguin_bttn.grid(row=0, column=1, rowspan=1, sticky=E+N)
+        self.penguin_bttn.grid(row=0, column=1, sticky=W)
 
         self.polarbear_bttn = Button(self, text="Polar Bear\nCost: " + str(self.polar()[1]) + "\nLevel: "
                                      + str(self.polar()[0]), command=self.polar, relief=RAISED)
-        self.polarbear_bttn.grid(row=0, column=2, rowspan=1, sticky=E+N)
+        self.polarbear_bttn.grid(row=1, column=1, sticky=W)
 
         self.christmastree_bttn = Button(self, text="Christmas tree\nCost: " + str(self.christmas()[1])
                                         + "\nLevel: " + str(self.christmas()[0]), command=self.christmas, relief=RAISED)
-        self.christmastree_bttn.grid(row=0, column=3, rowspan=1, sticky=E+N)
+        self.christmastree_bttn.grid(row=2, column=1, sticky=W)
 
         self.presmac_bttn = Button(self, text="Present Machine\nCost: " + str(self.present()[1])
                                             + "\nLevel: " + str(self.present()[0]), command=self.present, relief=RAISED)
-        self.presmac_bttn.grid(row=0, column=4, rowspan=1, sticky=E+N)
+        self.presmac_bttn.grid(row=3, column=1, sticky=W)
 
         self.candyfor_bttn = Button(self, text="Candy Forest\nCost: " + str(self.candy()[1])
                                     + "\nLevel: " + str(self.candy()[0]), command=self.candy, relief=RAISED)
-        self.candyfor_bttn.grid(row=0, column=5, rowspan=1, sticky=E+N)
+        self.candyfor_bttn.grid(row=4, column=1, sticky=W)
 
         self.eskimo_bttn = Button(self, text="Eskimo\nCost: " + str(self.eskimo()[1])
                                   + "\nLevel: " + str(self.eskimo()[0]), command=self.eskimo, relief=RAISED)
-        self.eskimo_bttn.grid(row=0, column=6, rowspan=1, sticky=E+N)
+        self.eskimo_bttn.grid(row=5, column=1, sticky=W)
 
         self.igloo_bttn = Button(self, text="Igloo\nCost: " + str(self.igloo()[1])
                                   + "\nLevel: " + str(self.igloo()[0]), command=self.igloo, relief=RAISED)
-        self.igloo_bttn.grid(row=0, column=7, rowspan=1, sticky=E+N)
+        self.igloo_bttn.grid(row=6, column=1, sticky=W)
 
         self.northpole_bttn = Button(self, text="North Pole\nCost: " + str(self.north()[1])
-                                  + "\nLevel: " + str(self.north()[0]), command=self.north, relief=RAISED)
-        self.northpole_bttn.grid(row=0, column=8, rowspan=1, sticky=E+N)
+                                  + "\nLevel: " + str(self.north()[0]), command=self.northpole, relief=RAISED)
+        self.northpole_bttn.grid(row=7, column=1, sticky=W)
 
         self.iceage_bttn = Button(self, text="Ice Age\nCost: " + str(self.ice()[1])
                                   + "\nLevel: " + str(self.ice()[0]), command=self.ice, relief=RAISED)
-        self.iceage_bttn.grid(row=0, column=9, rowspan=1, sticky=E+N)
+        self.iceage_bttn.grid(row=8, column=1, sticky=W)
 
         self.pluto_bttn = Button(self, text="Pluto\nCost: " + str(self.pluto()[1])
                                   + "\nLevel: " + str(self.pluto()[0]), command=self.pluto, relief=RAISED)
-        self.pluto_bttn.grid(row=0, column=10, rowspan=1, sticky=E+N)
+        self.pluto_bttn.grid(row=9, column=1, sticky=W)
 
         self.peppermint = Button(self, image=self.photo, command=self.update_count)
         self.peppermint.grid(row=0, column=0, rowspan=10, sticky=W+E+N+S)
@@ -104,34 +104,34 @@ class Peppermint(Frame):
         return self.can_list
 
     def eskimo(self):
-        self.pcost = 50 + self.p_up ** 3
-        self.p_up += 1
-        self.p_list = [self.p_up, self.pcost]
-        return self.p_list
+        self.ecost = 5000000 + self.esk_up ** 8
+        self.esk_up += 1
+        self.esk_list = [self.esk_up, self.ecost]
+        return self.esk_list
 
     def igloo(self):
-        self.pcost = 50 + self.p_up ** 3
-        self.p_up += 1
-        self.p_list = [self.p_up, self.pcost]
-        return self.p_list
+        self.igcost = 375000000 + self.ig_up ** 9
+        self.ig_up += 1
+        self.ig_list = [self.ig_up, self.igcost]
+        return self.ig_list
 
     def north(self):
-        self.pcost = 50 + self.p_up ** 3
-        self.p_up += 1
-        self.p_list = [self.p_up, self.pcost]
-        return self.p_list
+        self.norcost = 6000000000 + self.nor_up ** 10
+        self.nor_up += 1
+        self.nor_list = [self.nor_up, self.norcost]
+        return self.nor_list
 
     def ice(self):
-        self.pcost = 50 + self.p_up ** 3
-        self.p_up += 1
-        self.p_list = [self.p_up, self.pcost]
-        return self.p_list
+        self.icecost = 210000000000 + self.ice_up ** 12
+        self.ice_up += 1
+        self.ice_list = [self.ice_up, self.icecost]
+        return self.ice_list
 
     def pluto(self):
-        self.pcost = 50 + self.p_up ** 3
-        self.p_up += 1
-        self.p_list = [self.p_up, self.pcost]
-        return self.p_list
+        self.plutocost = 1000000000000 + self.pluto_up ** 14
+        self.pluto_up += 1
+        self.pluto_list = [self.pluto_up, self.plutocost]
+        return self.pluto_list
 
     def update_count(self):
 
