@@ -38,8 +38,9 @@ class Peppermint(Frame):
 
         self.redo = Button(self, text="Reset", command=self.reset, relief=RAISED)
 
-        self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(p[1]) + "\nLevel: " + str(p[0]),
-                              command=self.penguin, relief=RAISED)
+        self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(p[1]) + "\nLevel: " + str(p[0]), command = self.penguin, relief=RAISED)
+
+
         self.penguin_bttn.grid(row=0, column=1, sticky=W)
 
         self.polarbear_bttn = Button(self, text="Polar Bear\nCost: " + str(po[1]) + "\nLevel: "
@@ -88,7 +89,7 @@ class Peppermint(Frame):
         self.pcost = 50 + self.p_up ** 3
         self.p_up += 1
         self.p_list = [self.p_up, self.pcost]
-        return self.p_list
+        self.penguin_bttn["text"] = "Penguin\nCost: " + str(self.p_list[1]) + "\nLevel: " + str(self.p_list[0])
 
     def polar(self):
         self.polcost = 800 + self.po_up ** 4
