@@ -18,6 +18,7 @@ class Peppermint(Frame):
         self.pluto_up = 0
         self.create_window()
         self.penguin()
+        self.a = 1
         # self.p_list = []
 
 
@@ -95,6 +96,7 @@ class Peppermint(Frame):
             self.bttn_clicks -= self.pcost
             self.p_list = [self.p_up, self.pcost]
             self.penguin_bttn["text"] = "Penguin\nCost: " + str(self.p_list[1]) + "\nLevel: " + str(self.p_list[0])
+            self.peppermint["command"] = self.penguincount()
 
     def polar(self):
         self.polcost = 800 + self.po_up ** 4
@@ -185,11 +187,13 @@ class Peppermint(Frame):
 
     def penguincount(self):
 
-        if self
+        self.a += 3
 
-        self.bttn_clicks += a
+        self.bttn_clicks += self.a
 
-        if self.p_up
+        self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+
+
 
     def reset(self):
         self.bttn_clicks = 0
