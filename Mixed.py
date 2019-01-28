@@ -18,6 +18,7 @@ class Peppermint(Frame):
         self.pluto_up = 0
         self.create_window()
         self.penguin()
+        # self.p_list = []
 
 
     def create_window(self):
@@ -39,10 +40,8 @@ class Peppermint(Frame):
 
         self.redo = Button(self, text="Reset", command=self.reset, relief=RAISED)
 
-        self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(p[1]) + "\nLevel: " + str(p[0]), relief=RAISED)
-
-        self.penguin_bttn["command"] = self.penguin
-
+        self.penguin_bttn = Button(self, text="Penguin\nCost: " + str(p[1]) + "\nLevel: "
+                                              + str(p[0]), command = self.penguin, relief=RAISED)
         self.penguin_bttn.grid(row=0, column=1, sticky=W)
 
         self.polarbear_bttn = Button(self, text="Polar Bear\nCost: " + str(po[1]) + "\nLevel: "
@@ -88,70 +87,109 @@ class Peppermint(Frame):
         self.redo.grid()
 
     def penguin(self):
+
         self.pcost = 50 + self.p_up ** 3
-        self.p_up += 1
-        self.p_list = [self.p_up, self.pcost]
-        self.penguin_bttn["text"] = "Penguin\nCost: " + str(self.p_list[1]) + "\nLevel: " + str(self.p_list[0])
+
+        if self.bttn_clicks >= self.pcost:
+            self.p_up += 1
+            self.bttn_clicks -= self.pcost
+            self.p_list = [self.p_up, self.pcost]
+            self.penguin_bttn["text"] = "Penguin\nCost: " + str(self.p_list[1]) + "\nLevel: " + str(self.p_list[0])
 
     def polar(self):
         self.polcost = 800 + self.po_up ** 4
-        self.po_up += 1
-        self.pol_list = [self.po_up, self.polcost]
-        self.polarbear_bttn["text"] ="Polar Bear\nCost: " + str(self.pol_list[1]) + "\nLevel: " + str(self.pol_list[0])
+
+        if self.bttn_clicks >= self.polcost:
+            self.po_up += 1
+            self.pol_list = [self.po_up, self.polcost]
+            self.bttn_clicks -= self.pcost
+            self.polarbear_bttn["text"] ="Polar Bear\nCost: " + str(self.pol_list[1]) + "\nLevel: " + str(self.pol_list[0])
 
     def christmas(self):
         self.christcost = 6000 + self.ch_up ** 5
-        self.ch_up += 1
-        self.christ_list = [self.ch_up, self.christcost]
-        self.christmastree_bttn["text"] = "Christmas tree\nCost: " + str(self.christ_list[1]) + "\nLevel: " + str(self.christ_list[0])
+
+        if self.bttn_clicks >= self.christcost:
+            self.ch_up += 1
+            self.christ_list = [self.ch_up, self.christcost]
+            self.bttn_clicks -= self.christcost
+            self.christmastree_bttn["text"] = "Christmas tree\nCost: " + str(self.christ_list[1]) + "\nLevel: " + str(self.christ_list[0])
 
     def present(self):
         self.prescost = 45000 + self.pres_up ** 6
-        self.pres_up += 1
-        self.pres_list = [self.pres_up, self.prescost]
-        self.presmac_bttn["text"] = "Present Machine\nCost: " + str(self.pres_list[1]) + "\nLevel: " + str(self.pres_list[0])
+
+        if self.bttn_clicks >= self.prescost:
+            self.pres_up += 1
+            self.pres_list = [self.pres_up, self.prescost]
+            self.bttn_clicks -= self.prescost
+            self.presmac_bttn["text"] = "Present Machine\nCost: " + str(self.pres_list[1]) + "\nLevel: " + str(self.pres_list[0])
 
     def candy(self):
         self.cancost = 300000 + self.can_up ** 7
-        self.can_up += 1
-        self.can_list = [self.can_up, self.cancost]
-        self.candyfor_bttn["text"] = "Candy Forest\nCost: " + str(self.can_list[1]) + "\nLevel: " + str(self.can_list[0])
+
+        if self.bttn_clicks >= self.cancost:
+            self.can_up += 1
+            self.can_list = [self.can_up, self.cancost]
+            self.bttn_clicks -= self.cancost
+            self.candyfor_bttn["text"] = "Candy Forest\nCost: " + str(self.can_list[1]) + "\nLevel: " + str(self.can_list[0])
 
     def eskimo(self):
         self.ecost = 5000000 + self.esk_up ** 8
-        self.esk_up += 1
-        self.esk_list = [self.esk_up, self.ecost]
-        self.eskimo_bttn["text"] = "Eskimo\nCost: " + str(self.esk_list[1]) + "\nLevel: " + str(self.esk_list[0])
+
+        if self.bttn_clicks >= self.ecost:
+            self.esk_up += 1
+            self.bttn_clicks -= self.ecost
+            self.esk_list = [self.esk_up, self.ecost]
+            self.eskimo_bttn["text"] = "Eskimo\nCost: " + str(self.esk_list[1]) + "\nLevel: " + str(self.esk_list[0])
 
     def igloo(self):
         self.igcost = 375000000 + self.ig_up ** 9
-        self.ig_up += 1
-        self.ig_list = [self.ig_up, self.igcost]
-        self. igloo_bttn["text"] = "Igloo\nCost: " + str(self.ig_list[1]) + "\nLevel: " + str(self.ig_list[0])
+
+        if self.bttn_clicks >= self.igcost:
+            self.ig_up += 1
+            self.bttn_clicks -= self.igcost
+            self.ig_list = [self.ig_up, self.igcost]
+            self. igloo_bttn["text"] = "Igloo\nCost: " + str(self.ig_list[1]) + "\nLevel: " + str(self.ig_list[0])
 
     def north(self):
         self.norcost = 6000000000 + self.nor_up ** 10
-        self.nor_up += 1
-        self.nor_list = [self.nor_up, self.norcost]
-        self.northpole_bttn["text"] = "North Pole\nCost: " + str(self.nor_list[1]) + "\nLevel: " + str(self.nor_list[0])
+
+        if self.bttn_clicks >= self.norcost:
+            self.nor_up += 1
+            self.bttn_clicks -= self.norcost
+            self.nor_list = [self.nor_up, self.norcost]
+            self.northpole_bttn["text"] = "North Pole\nCost: " + str(self.nor_list[1]) + "\nLevel: " + str(self.nor_list[0])
 
     def ice(self):
         self.icecost = 210000000000 + self.ice_up ** 12
-        self.ice_up += 1
-        self.ice_list = [self.ice_up, self.icecost]
-        self.iceage_bttn["text"] = "Ice Age\nCost: " + str(self.ice_list[1]) + "\nLevel: " + str(self.ice_list[0])
+
+        if self.bttn_clicks >= self.icecost:
+            self.ice_up += 1
+            self.bttn_clicks -= self.icecost
+            self.ice_list = [self.ice_up, self.icecost]
+            self.iceage_bttn["text"] = "Ice Age\nCost: " + str(self.ice_list[1]) + "\nLevel: " + str(self.ice_list[0])
 
     def pluto(self):
         self.plutocost = 1000000000000 + self.pluto_up ** 14
-        self.pluto_up += 1
-        self.pluto_list = [self.pluto_up, self.plutocost]
-        self.pluto_bttn["text"] = "Pluto\nCost: " + str(self.pluto_list[1]) + "\nLevel: " + str(self.pluto_list[0])
+
+        if self.bttn_clicks >= self.plutocost:
+            self.pluto_up += 1
+            self.bttn_clicks -= self.plutocost
+            self.pluto_list = [self.pluto_up, self.plutocost]
+            self.pluto_bttn["text"] = "Pluto\nCost: " + str(self.pluto_list[1]) + "\nLevel: " + str(self.pluto_list[0])
 
     def update_count(self):
 
         self.bttn_clicks += 1
 
         self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+
+    def penguincount(self):
+
+        if self
+
+        self.bttn_clicks += a
+
+        if self.p_up
 
     def reset(self):
         self.bttn_clicks = 0
