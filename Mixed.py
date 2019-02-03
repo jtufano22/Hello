@@ -23,6 +23,10 @@ class Peppermint(Frame):
         self.d = 0
         self.e = 0
         self.f = 0
+        self.g = 0
+        self.h = 0
+        self.i = 0
+        self.j = 0
 
         # self.p_list = []
 
@@ -35,10 +39,10 @@ class Peppermint(Frame):
         pres = self.present()
         can = self.candy()
         esk = self.eskimo()
-        # ig = self.igloo()
-        # nor = self.north()
-        # ice = self.ice()
-        # pluto = self.pluto()
+        ig = self.igloo()
+        nor = self.north()
+        ice = self.ice()
+        pluto = self.pluto()
 
         self.photo = PhotoImage(file="peppermint11.png")
 
@@ -70,24 +74,27 @@ class Peppermint(Frame):
                                   + "\nLevel: " + str(esk[0]), command=self.eskimo, relief=RAISED)
         self.eskimo_bttn.grid(row=5, column=1, sticky=W)
 
-        # self.igloo_bttn = Button(self, text="Igloo\nCost: " + str(ig[1])
-        #                           + "\nLevel: " + str(ig[0]), command=self.igloo, relief=RAISED)
-        # self.igloo_bttn.grid(row=6, column=1, sticky=W)
-        #
-        # self.northpole_bttn = Button(self, text="North Pole\nCost: " + str(nor[1])
-        #                           + "\nLevel: " + str(nor[0]), command=self.north, relief=RAISED)
-        # self.northpole_bttn.grid(row=7, column=1, sticky=W)
-        #
-        # self.iceage_bttn = Button(self, text="Ice Age\nCost: " + str(ice[1])
-        #                           + "\nLevel: " + str(ice[0]), command=self.ice, relief=RAISED)
-        # self.iceage_bttn.grid(row=8, column=1, sticky=W)
-        #
-        # self.pluto_bttn = Button(self, text="Pluto\nCost: " + str(pluto[1])
-        #                           + "\nLevel: " + str(pluto[0]), command=self.pluto, relief=RAISED)
-        # self.pluto_bttn.grid(row=9, column=1, sticky=W)
-        #
+        self.igloo_bttn = Button(self, text="Igloo\nCost: " + str(ig[1])
+                                  + "\nLevel: " + str(ig[0]), command=self.igloo, relief=RAISED)
+        self.igloo_bttn.grid(row=6, column=1, sticky=W)
+
+        self.northpole_bttn = Button(self, text="North Pole\nCost: " + str(nor[1])
+                                  + "\nLevel: " + str(nor[0]), command=self.north, relief=RAISED)
+        self.northpole_bttn.grid(row=7, column=1, sticky=W)
+
+        self.iceage_bttn = Button(self, text="Ice Age\nCost: " + str(ice[1])
+                                  + "\nLevel: " + str(ice[0]), command=self.ice, relief=RAISED)
+        self.iceage_bttn.grid(row=8, column=1, sticky=W)
+
+        self.pluto_bttn = Button(self, text="Pluto\nCost: " + str(pluto[1])
+                                  + "\nLevel: " + str(pluto[0]), command=self.pluto, relief=RAISED)
+        self.pluto_bttn.grid(row=9, column=1, sticky=W)
+
         self.peppermint = Button(self, image=self.photo, command=self.update_count)
         self.peppermint.grid(row=0, column=0, rowspan=10, sticky=W+E+N+S)
+
+        self.add = Button(self, text="ADD", command=self.add_count)
+        self.add.grid(row=3, column=0)
 
         self.count.grid()
         self.redo.grid()
@@ -197,68 +204,95 @@ class Peppermint(Frame):
             self.esk_up += 1
             self.ecost = 5000000 + self.esk_up ** 8
             self.bttn_clicks -= 5000000 + (self.esk_up-1) ** 8
-            self.esk_list = [self.esk_up, self.ecost]
-            self.eskimo_bttn["text"] = "Eskimo\nCost: " + str(self.esk_list[1]) + "\nLevel: " + str(self.esk_list[0])
+            esk_list = [self.esk_up, self.ecost]
+            self.eskimo_bttn["text"] = "Eskimo\nCost: " + str(esk_list[1]) + "\nLevel: " + str(esk_list[0])
             self.peppermint["command"] = self.update_count
             self.f += 4320
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return esk_list
 
-    # def igloo(self):
-    #     self.igcost = 375000000 + self.ig_up ** 9
-    #
-    #     if self.bttn_clicks >= self.igcost:
-    #         self.ig_up += 1
-    #         self.bttn_clicks -= self.igcost
-    #         self.ig_list = [self.ig_up, self.igcost]
-    #         self. igloo_bttn["text"] = "Igloo\nCost: " + str(self.ig_list[1]) + "\nLevel: " + str(self.ig_list[0])
-    #
-    # def north(self):
-    #     self.norcost = 6000000000 + self.nor_up ** 10
-    #
-    #     if self.bttn_clicks >= self.norcost:
-    #         self.nor_up += 1
-    #         self.bttn_clicks -= self.norcost
-    #         self.nor_list = [self.nor_up, self.norcost]
-    #         self.northpole_bttn["text"] = "North Pole\nCost: " + str(self.nor_list[1]) + "\nLevel: " + str(self.nor_list[0])
-    #
-    # def ice(self):
-    #     self.icecost = 210000000000 + self.ice_up ** 12
-    #
-    #     if self.bttn_clicks >= self.icecost:
-    #         self.ice_up += 1
-    #         self.bttn_clicks -= self.icecost
-    #         self.ice_list = [self.ice_up, self.icecost]
-    #         self.iceage_bttn["text"] = "Ice Age\nCost: " + str(self.ice_list[1]) + "\nLevel: " + str(self.ice_list[0])
-    #
-    # def pluto(self):
-    #     self.plutocost = 1000000000000 + self.pluto_up ** 14
-    #
-    #     if self.bttn_clicks >= self.plutocost:
-    #         self.pluto_up += 1
-    #         self.bttn_clicks -= self.plutocost
-    #         self.pluto_list = [self.pluto_up, self.plutocost]
-    #         self.pluto_bttn["text"] = "Pluto\nCost: " + str(self.pluto_list[1]) + "\nLevel: " + str(self.pluto_list[0])
+    def igloo(self):
+        self.igcost = 375000000
+
+        ig_list = [0, 375000000]
+
+        if self.bttn_clicks >= 375000000 + self.ig_up ** 9:
+            self.ig_up += 1
+            self.igcost = 375000000 + self.ig_up ** 9
+            self.bttn_clicks -= 375000000 + (self.ig_up-1) ** 9
+            ig_list = [self.ig_up, self.igcost]
+            self.igloo_bttn["text"] = "Igloo\nCost: " + str(ig_list[1]) + "\nLevel: " + str(ig_list[0])
+            self.peppermint["command"] = self.update_count
+            self.g += 17280
+            self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+
+        return ig_list
+
+    def north(self):
+        self.norcost = 6000000000
+
+        nor_list = [0, 6000000000]
+
+        if self.bttn_clicks >= 6000000000 + self.nor_up ** 10:
+            self.nor_up += 1
+            self.norcost = 6000000000 + self.nor_up ** 10
+            self.bttn_clicks -= 6000000000 + (self.nor_up-1) ** 10
+            nor_list = [self.nor_up, self.norcost]
+            self.northpole_bttn["text"] = "North Pole\nCost: " + str(nor_list[1]) + "\nLevel: " + str(nor_list[0])
+            self.peppermint["command"] = self.update_count
+            self.g += 51840
+            self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+
+        return nor_list
+
+    def ice(self):
+
+        self.icecost = 210000000000
+
+        ice_list = [0, 210000000000]
+
+        if self.bttn_clicks >= 210000000000 + self.ice_up ** 12:
+            self.ice_up += 1
+            self.icecost = 210000000000 + self.ice_up ** 12
+            self.bttn_clicks -= 210000000000 + (self.ice_up-1) ** 12
+            ice_list = [self.ice_up, self.icecost]
+            self.iceage_bttn["text"] = "North Pole\nCost: " + str(ice_list[1]) + "\nLevel: " + str(ice_list[0])
+            self.peppermint["command"] = self.update_count
+            self.h += 207360
+            self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+
+        return ice_list
+
+    def pluto(self):
+
+        self.plutocost = 1000000000000 + self.pluto_up ** 14
+
+        pluto_list = [0, 1000000000000]
+
+        if self.bttn_clicks >= 1000000000000 + self.pluto_up ** 14:
+            self.pluto_up += 1
+            self.plutocost = 1000000000000 + self.pluto_up ** 14
+            self.bttn_clicks -= 1000000000000 + (self.pluto_up-1) ** 14
+            pluto_list = [self.pluto_up, self.plutocost]
+            self.pluto_bttn["text"] = "Pluto\nCost: " + str(pluto_list[1]) + "\nLevel: " + str(pluto_list[0])
+            self.peppermint["command"] = self.update_count
+            self.i += 829440
+            self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+
+        return pluto_list
 
     def update_count(self):
 
-        self.bttn_clicks += self.a + self.b + self.c + self.d + self.e + self.f
+        self.bttn_clicks += self.a + self.b + self.c + self.d + self.e + self.f + self.g + self.h + self.i + self.j
 
         self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
-    # def penguincount(self):
-    #
-    #     self.bttn_clicks += self.a
-    #
-    #     self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
-    #
-    # def polarcount(self):
-    #
-    #     self.bttn_clicks += self.b
-    #
-    #     self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+    def add_count(self):
 
+        self.bttn_clicks += 999999999999999
+
+        self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
 
     def reset(self):
