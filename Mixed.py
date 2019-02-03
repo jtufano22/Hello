@@ -1,5 +1,4 @@
 from tkinter import *
-import time
 
 class Peppermint(Frame):
     def __init__(self, master):
@@ -93,8 +92,8 @@ class Peppermint(Frame):
         self.peppermint = Button(self, image=self.photo, command=self.update_count)
         self.peppermint.grid(row=0, column=0, rowspan=10, sticky=W+E+N+S)
 
-        self.add = Button(self, text="ADD", command=self.add_count)
-        self.add.grid(row=3, column=0)
+        # self.add = Button(self, text="ADD", command=self.add_count)
+        # self.add.grid(row=3, column=0)
 
         self.count.grid()
         self.redo.grid()
@@ -288,11 +287,11 @@ class Peppermint(Frame):
 
         self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
-    def add_count(self):
-
-        self.bttn_clicks += 999999999999999
-
-        self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+    # def add_count(self):
+    #
+    #     self.bttn_clicks += 999999999999999
+    #
+    #     self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
 
     def reset(self):
