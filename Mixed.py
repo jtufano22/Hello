@@ -15,7 +15,6 @@ class Peppermint(Frame):
         self.nor_up = 0
         self.ice_up = 0
         self.pluto_up = 0
-        self.create_window()
         self.a = 1
         self.b = 0
         self.c = 0
@@ -26,6 +25,7 @@ class Peppermint(Frame):
         self.h = 0
         self.i = 0
         self.j = 0
+        self.create_window()
 
         # self.p_list = []
 
@@ -92,8 +92,8 @@ class Peppermint(Frame):
         self.peppermint = Button(self, image=self.photo, command=self.update_count)
         self.peppermint.grid(row=0, column=0, rowspan=10, sticky=W+E+N+S)
 
-        # self.add = Button(self, text="ADD", command=self.add_count)
-        # self.add.grid(row=3, column=0)
+        self.add = Button(self, text="ADD", command=self.add_count)
+        self.add.grid(row=3, column=0)
 
         self.count.grid()
         self.redo.grid()
@@ -150,7 +150,7 @@ class Peppermint(Frame):
             christ_list = [self.ch_up, self.christcost]
             self.christmastree_bttn["text"] = "Christmas tree\nCost: " + str(christ_list[1]) + "\nLevel: " + str(christ_list[0])
             self.peppermint["command"] = self.update_count
-            self.c += 120
+            self.c += 300
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return christ_list
@@ -170,7 +170,7 @@ class Peppermint(Frame):
             pres_list = [self.pres_up, self.prescost]
             self.presmac_bttn["text"] = "Present Machine\nCost: " + str(pres_list[1]) + "\nLevel: " + str(pres_list[0])
             self.peppermint["command"] = self.update_count
-            self.d += 480
+            self.d += 3000
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return pres_list
@@ -188,7 +188,7 @@ class Peppermint(Frame):
             can_list = [self.can_up, self.cancost]
             self.candyfor_bttn["text"] = "Candy Forest\nCost: " + str(can_list[1]) + "\nLevel: " + str(can_list[0])
             self.peppermint["command"] = self.update_count
-            self.e += 1440
+            self.e += 30000
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return can_list
@@ -206,7 +206,7 @@ class Peppermint(Frame):
             esk_list = [self.esk_up, self.ecost]
             self.eskimo_bttn["text"] = "Eskimo\nCost: " + str(esk_list[1]) + "\nLevel: " + str(esk_list[0])
             self.peppermint["command"] = self.update_count
-            self.f += 4320
+            self.f += 300000
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return esk_list
@@ -223,7 +223,7 @@ class Peppermint(Frame):
             ig_list = [self.ig_up, self.igcost]
             self.igloo_bttn["text"] = "Igloo\nCost: " + str(ig_list[1]) + "\nLevel: " + str(ig_list[0])
             self.peppermint["command"] = self.update_count
-            self.g += 17280
+            self.g += 3000000
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return ig_list
@@ -240,7 +240,7 @@ class Peppermint(Frame):
             nor_list = [self.nor_up, self.norcost]
             self.northpole_bttn["text"] = "North Pole\nCost: " + str(nor_list[1]) + "\nLevel: " + str(nor_list[0])
             self.peppermint["command"] = self.update_count
-            self.g += 51840
+            self.g += 30000000
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return nor_list
@@ -258,7 +258,7 @@ class Peppermint(Frame):
             ice_list = [self.ice_up, self.icecost]
             self.iceage_bttn["text"] = "North Pole\nCost: " + str(ice_list[1]) + "\nLevel: " + str(ice_list[0])
             self.peppermint["command"] = self.update_count
-            self.h += 207360
+            self.h += 300000000
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return ice_list
@@ -276,7 +276,7 @@ class Peppermint(Frame):
             pluto_list = [self.pluto_up, self.plutocost]
             self.pluto_bttn["text"] = "Pluto\nCost: " + str(pluto_list[1]) + "\nLevel: " + str(pluto_list[0])
             self.peppermint["command"] = self.update_count
-            self.i += 829440
+            self.i += 3000000000
             self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
         return pluto_list
@@ -286,16 +286,17 @@ class Peppermint(Frame):
         self.bttn_clicks += self.a + self.b + self.c + self.d + self.e + self.f + self.g + self.h + self.i + self.j
 
         self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+    #
+    def add_count(self):
 
-    # def add_count(self):
-    #
-    #     self.bttn_clicks += 999999999999999
-    #
-    #     self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
+        self.bttn_clicks += 50
+
+        self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
 
     def reset(self):
         self.bttn_clicks = 0
+
         self.count["text"] = "Peppermints: " + str(self.bttn_clicks)
 
 root = Tk()
